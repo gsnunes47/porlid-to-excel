@@ -2,6 +2,7 @@ import pandas as pd
 import re
 
 file_path = 'samples/PORLID_8casosdevento.txt'
+
 with open(file_path, 'r') as file:
     lines = file.readlines()
 

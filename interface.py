@@ -3,12 +3,25 @@ from colarExcel import colarExcel
 from mesclarExcel import mesclarExcel
 from listarEmultiplicar import listarEmultiplicar
 
+ascii_art = """
+               __                  ☄️
+              / '_) !
+     _.----._/ /         ☄️                     ☄️
+    /         /                        ☄️                 
+ __/ (  | (  |              ☄️      
+/__.-'|_|--|_|   ☄️                      ☄️           
+"""
+
+
 def printc(str):
     print()
     print(str)
     print()
 
 printc("  Bem vindo ao Porlid to Excel")
+
+print(ascii_art)
+
 printc("  Passe o caminho completo do porlid.txt que deseja converter.")
 printc("  Para copiar basta clicar com o botão direito em cima do arquivo e selecionar a opção 'copiar como caminho'")
 printc("  Alternativamente também pode se usar o atalho ctrl + shift + c")

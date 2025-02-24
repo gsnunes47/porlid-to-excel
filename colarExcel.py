@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-def colarExcel(file_path):
+def colarExcel(file_path, output_name):
     with open(file_path, 'r') as file:
         lines = file.readlines()
 
@@ -43,8 +43,9 @@ def colarExcel(file_path):
     split.pop()
     for i in split:
         path_final += i + '\\'
-    path_final += 'dados-convertidos.xlsx'
+    path_final += f'dados-convertidos-{output_name}'
 
     df.to_excel(path_final, index=False)
-
-    print(f"Arquivo Excel criado: dados-convertidos.xlsx")
+    
+    print()
+    print(f"  Arquivo Excel criado: dados-convertidos-{output_name}")

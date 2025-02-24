@@ -27,8 +27,22 @@ def listarEmultiplicar(file_path, output_path, colunas):
         if nome_coluna == "Elem" or nome_coluna == "Todas permanentes e acidentais dos pavimentos":
             continue
         
-        print('Coluna: ', nome_coluna)
-        majorador = float(input('Majorador: '))
+        print('  Coluna: ', nome_coluna)
+
+        #input majorador    
+        while True:
+
+            try:
+                majorador = str(input('  Majorador: ')).strip()
+                majorador = float(majorador.replace(',', '.'))
+                break
+
+            except ValueError:
+                print()
+                print("  Erro: Digite um número válido.")
+                print()
+        
+        print()
         indice_coluna[1] += 1
 
         df_recorte = df.iloc[:, indice_coluna[0]:indice_coluna[1]]
@@ -41,6 +55,10 @@ def listarEmultiplicar(file_path, output_path, colunas):
 
         #aplicando majorador
         df_recorte = df_recorte.multiply(majorador)
+
+        #arredondando para duas casas decimais
+        df_recorte = df_recorte.round(2)    
+
         df.iloc[:, indice_coluna[0]:indice_coluna[1]] = df_recorte
 
     segunda_linha = segunda_linha.apply(lambda x: x if pd.notna(x) else "")

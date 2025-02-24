@@ -8,17 +8,21 @@ def printc(str):
     print(str)
     print()
 
-printc("Bem vindo ao Porlid - Excel")
-printc("Passe o caminho completo do porlid.txt que deseja converter.")
-printc("Para copiar basta clicar com o botão direito em cima do arquivo e selecionar a opção 'copiar como caminho'")
-printc("Alternativamente também pode se usar o atalho ctrl + shift + c")
+printc("  Bem vindo ao Porlid to Excel")
+printc("  Passe o caminho completo do porlid.txt que deseja converter.")
+printc("  Para copiar basta clicar com o botão direito em cima do arquivo e selecionar a opção 'copiar como caminho'")
+printc("  Alternativamente também pode se usar o atalho ctrl + shift + c")
 
-file_path = str(input('Caminho: ')).replace('"', '')
+print()
+file_path = str(input('  Caminho: ')).replace('"', '')
+print()
 
-printc("O arquivo final sera arquivado no mesmo diretório.")
-printc("Por favor, digite o nome do arquivo final.")
+printc("  O arquivo final sera arquivado no mesmo diretório.")
+printc("  Por favor, digite o nome do arquivo final.")
 
-output_name = str(input('Nome: ')) + '.xlsx'
+print()
+output_name = str(input('  Nome: ')) + '.xlsx'
+print()
 
 path_sample = ''
 split = file_path.split('\\')
@@ -28,18 +32,20 @@ for i in split:
 
 output_path = path_sample + output_name
 
-colarExcel(file_path)
+colarExcel(file_path, output_name)
 
 time.sleep(1.5)
 
-colunas = mesclarExcel(path_sample + 'dados-convertidos.xlsx')
+colunas = mesclarExcel(path_sample + f'dados-convertidos-{output_name}')
 
 time.sleep(1.5)
 
-printc("Iniciando a majoração das colunas.")
+printc("  Iniciando a majoração das colunas.")
 
-printc("Insira o valor do majorador e aperte enter.")
+printc("  Insira o valor do majorador e aperte enter.")
 
-listarEmultiplicar(file_path=path_sample + 'dados-convertidos.xlsx', output_path=output_path, colunas=colunas)
+listarEmultiplicar(file_path=path_sample + f'dados-convertidos-{output_name}', output_path=output_path, colunas=colunas)
 
-printc("Conversão concluída e majoradores aplicados.")  
+printc("  Conversão concluída e majoradores aplicados.")
+
+input("  Aperte Enter para fechar o programa.")
